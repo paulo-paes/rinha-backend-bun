@@ -14,9 +14,11 @@ RUN bun install --production
 
 COPY . .
 
+RUN bun run build
+
 # run the app
 EXPOSE 8000/tcp
 
 EXPOSE 8001/tcp
 
-ENTRYPOINT [ "bun", "run", "src/index.ts" ]
+ENTRYPOINT [ "./dist/app" ]
